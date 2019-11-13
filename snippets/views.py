@@ -14,6 +14,40 @@ from rest_framework.parsers import JSONParser
 
 
 @csrf_exempt
+def branch(request):
+
+    if request.method == 'GET':
+        snippets = Branch.objects.all()
+        serializer = BranchSerializer(snippets, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = BranchSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
+def contact(request):
+
+    if request.method == 'GET':
+        snippets = Contact.objects.all()
+        serializer = ContactSerializer(snippets, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == 'POST':
+        data = JSONParser().parse(request)
+        serializer = ContactSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse(serializer.data, status=201)
+        return JsonResponse(serializer.errors, status=400)
+
+
+@csrf_exempt
 def category(request):
 
     if request.method == 'GET':
