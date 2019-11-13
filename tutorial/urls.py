@@ -22,5 +22,7 @@ from snippets import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('course/', views.course),
+    path('category', views.category),
+    path('category_id', views.category_id),
     path('course/<int:pk>/', views.course_id),
 ]
