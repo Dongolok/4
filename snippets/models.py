@@ -17,7 +17,7 @@ class Branch(models.Model):
     latitude = models.CharField(max_length=200)
     longitude = models.CharField(max_length=200)
     address = models.CharField(max_length=200)
-    branch = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='branches', default=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='branches', default=True)
 
 
 class Contact(models.Model):
@@ -33,7 +33,7 @@ class Contact(models.Model):
         default=True,
     )
 
-    contact = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='contacts', default=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='contacts', default=True)
     value = models.CharField(max_length=200)
 
 
