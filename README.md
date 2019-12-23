@@ -15,6 +15,27 @@ sudo add-apt-repository ppa:jonathonf/python-3.6
 sudo apt-get update
 sudo apt-get install python3.6
 ```
+
+There is also another option to septup the environment
+
+Create first folder with any easy-to-read title
+
+Then:
+```
+virtualenv -p python3 .
+```
+It will create a virtual environment for you
+
+After that activate it directly within the folder:
+```
+source bin/activate
+```
+And finally you can download whatever django version or framework you need:
+
+```
+pip install django
+```
+
 After it download Postman from Ubuntu Software
 
 ### Installing
